@@ -1,0 +1,25 @@
+def replace(file_path, word1, word2):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+
+        modified = content.replace(word1, word2)
+
+        with open(file_path, 'w') as file:
+            file.write(modified)
+
+        print(f'Всі входження "{word1}" було замінено на "{word2}" у файлі {file_path}.')
+
+    except FileNotFoundError:
+        print(f'Файл {file_path} не знайдено.')
+    except Exception as e:
+        print(f'Виникла помилка: {e}')
+
+
+word1 = input('Введіть слово для пошуку: ')
+word2 = input('Введіть слово для заміни: ')
+
+file_path = r'C:\Users\dimac\AppData\Roaming\JetBrains\PyCharm2023.2\scratches\laba\Cr.txt'
+
+
+replace(file_path, word1, word2)
